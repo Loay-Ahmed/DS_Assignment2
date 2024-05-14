@@ -3,8 +3,9 @@
 
 
 #include "Item.h"
+#include "Tree.h"
 
-class Heap {
+class Heap : Tree {
 private:
     struct Node {
         Item item;
@@ -14,8 +15,8 @@ private:
     Node* root;
 public:
     Heap();
-    void insertNode(const string& itemName, const string& category, int price);
-    void deleteNode(const string& name);
+    void insertNode(const string& itemName, const string& category, int price) const override;
+    void deleteNode(const string& name) const override;
 };
 
 

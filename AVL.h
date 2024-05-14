@@ -3,8 +3,9 @@
 
 
 #include "Item.h"
+#include "Tree.h"
 
-class AVL {
+class AVL : Tree {
 private:
     struct Node {
         Item item;
@@ -17,8 +18,8 @@ public:
     void inOrder(Node* node);
     void postOrder(Node* node);
     void balanceTree();
-    void insertNode(const string& itemName, const string& category, int price);
-    void deleteNode(const string& name);
+    void insertNode(const string& itemName, const string& category, int price) const override;
+    void deleteNode(const string& name) const override;
 };
 
 

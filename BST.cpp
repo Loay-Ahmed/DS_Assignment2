@@ -20,10 +20,10 @@ void BST::inOrder(Node *node) {
     }
 }
 
-void BST::insertNode(const string& itemName, const string& category, int price) {
+void BST::deleteNode(const string &name) const {
 
 }
 
-void BST::deleteNode(const string& name) {
+void BST::insertNode(const string &itemName, const string &category, int price) const {
 
 }

@@ -2,8 +2,9 @@
 #define DS_ASSIGNMENT2_BST_H
 
 #include "Item.h"
+#include "Tree.h"
 
-class BST {
+class BST : Tree {
 private:
     struct Node {
         Item item;
@@ -15,8 +16,8 @@ public:
     BST();
     void inOrder(Node* node);
     void postOrder(Node* node);
-    void insertNode(const string& itemName, const string& category, int price);
-    void deleteNode(const string& name);
+    void insertNode(const string& itemName, const string& category, int price) const override;
+    void deleteNode(const string& name) const override;
 };
 
 
