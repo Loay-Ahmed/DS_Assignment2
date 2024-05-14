@@ -24,6 +24,6 @@ void BST::deleteNode(const string &name) const {
 
 }
 
-void BST::insertNode(const string &itemName, const string &category, int price) const {
+void BST::insertNode(const string &itemName, const string &category, int price) {
 
 }

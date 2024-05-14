@@ -6,7 +6,8 @@
 using namespace std;
 
 class Tree {
-    virtual void insertNode(const string& itemName, const string& category, int price) const = 0;
+public:
+    virtual void insertNode(const string& itemName, const string& category, int price) = 0;
     virtual void deleteNode(const string& name) const = 0;
 };
 

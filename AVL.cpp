@@ -24,7 +24,7 @@ void AVL::balanceTree() {
 
 }
 
-void AVL::insertNode(const string &itemName, const string &category, int price) const {
+void AVL::insertNode(const string &itemName, const string &category, int price) {
 
 }
 

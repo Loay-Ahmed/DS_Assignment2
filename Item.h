@@ -10,9 +10,11 @@ class Item {
     string category;
     int price;
 public:
+    Item();
+
     Item(string itemName, string category, int price);
 
-    bool operator<(const Item &);
+    bool operator<(const Item &item) const;
 
     void print();
 };
