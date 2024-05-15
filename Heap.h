@@ -8,21 +8,21 @@
 
 class Heap : public Tree {
 private:
-    struct Node {
-        Item item;
-        Node* left;
-        Node* right;
-        explicit Node(Item item, Node* left = nullptr, Node* right = nullptr);
-    };
-    Node* root;
+    deque<Item> arr;
     int size;
 public:
     Heap();
-    void heapify(deque<Heap::Node*>& arr, int i, int n);
+
+    explicit Heap(deque<Item> &arr);
+
+    void heapify(int i, int n);
+
     void heapSort();
-    deque<Heap::Node*> readToArray();
-    void insertNode(const string& itemName, const string& category, int price) override;
-    void deleteNode(const string& name) const override;
+
+    void insertNode(const string &itemName, const string &category, int price) override;
+
+    void deleteNode(const string &name);
+
     void print();
 };
 

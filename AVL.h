@@ -19,7 +19,7 @@ public:
     void postOrder(Node* node);
     void balanceTree();
     void insertNode(const string& itemName, const string& category, int price) override;
-    void deleteNode(const string& name) const override;
+    void deleteNode(const string& name);
 };
 
 

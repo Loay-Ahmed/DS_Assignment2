@@ -1,117 +1,80 @@
 #include "Heap.h"
 
-#include <utility>
-#include "queue"
 
 Heap::Heap() {
-    this->root = nullptr;
+    this->arr = deque<Item>();
     this->size = 0;
 }
 
+
 void Heap::insertNode(const string &itemName, const string &category, int price) {
-    if (root) {
-        Item item = Item(itemName, category, price);
-        auto *newNode = new Heap::Node(item);
+    Item item = Item(itemName, category, price);
 
-        // create array to find parent
-        deque<Node *> arr = readToArray();
+    // Insert Item in the end of the array and then Heapify it
+    heapify(0, size - 1);
+    arr.push_back(item);
+    heapify(0, size - 1);
+    size++;
+}
 
-        heapify(arr, 0, size - 1);
-        arr.push_back(newNode);
 
-        // find the parent index
-        int childIndex = (int) arr.size() - 1;
-        int parentIndex = (childIndex - 1) / 2;
-        auto parent = arr[parentIndex];
-
-        // Inserting newNode in the Tree
-        if (parent->left == nullptr) {
-            parent->left = newNode;
-            this->size++;
-        } else if (parent->right == nullptr) {
-            parent->right = newNode;
-            this->size++;
+void Heap::deleteNode(const string &name) {
+    for (int i = 0; i < size; i++) {
+        if (arr[i].ItemName() == name) {
+            arr[i] = arr[size - 1];
+            arr.pop_back();
         }
-    } else { root = new Node(Item(itemName, category, price)); }
+    }
+    size = size - 1;
 }
 
-void Heap::deleteNode(const string &name) const {
-
-}
 
 void Heap::heapSort() {
     cout << "In HeapSort" << endl;
     /// Get the array of items from the Heap Tree
-    deque<Node *> arr = readToArray();
+
 
     /// Heap sort algorithm
-    heapify(arr, 0, size);
+    heapify(0, size);
     for (int i = 0, max = (size - 1); i < size; i++, max--) {
-        swap(arr[0]->item, arr[max]->item);
-        heapify(arr, 0, max + 1);
+        swap(arr[0], arr[max]);
+        heapify(0, max);
     }
     /// End of Heap sort
 
-    // readToNode(arr);
 }
 
-void Heap::heapify(deque<Heap::Node *> &arr, int i, int n) {
+
+void Heap::heapify(int i, int n) {
     int l = 2 * i + 1;
     int r = 2 * i + 2;
     int max = i;
-    if (l < n && !(arr[l]->item < arr[max]->item)) {
-//        swap(arr[l]->item, arr[max]->item);
-        Item temp = arr[l]->item;
-        arr[l]->item = arr[max]->item;
-        arr[max]->item = temp;
+    if (l < n && arr[l].Price() > arr[max].Price()) {
+        swap(arr[l], arr[max]);
+//        Item temp = arr[l];
+//        arr[l] = arr[max];
+//        arr[max] = temp;
         max = l;
-        heapify(arr, max, n);
-    } else if (r < n && !(arr[r]->item < arr[max]->item)) {
-//        swap(arr[r]->item, arr[max]->item);
-        Item temp = arr[r]->item;
-        arr[r]->item = arr[max]->item;
-        arr[max]->item = temp;
+        heapify(max, n);
+    } else if (r < n && arr[r].Price() > arr[max].Price()) {
+        swap(arr[r], arr[max]);
+//        Item temp = arr[r];
+//        arr[r] = arr[max];
+//        arr[max] = temp;
         max = r;
-        heapify(arr, max, n);
+        heapify(max, n);
     }
 }
 
-deque<Heap::Node *> Heap::readToArray() {
-    deque<Node *> arr;
-    queue<Node *> q;
-    q.push(root);
-    while (!q.empty()) {
-        Node *current = q.front();
-        q.pop();
-
-        arr.push_back(current);
-
-        if (current->left) {
-            q.push(current->left);
-        }
-        if (current->right) {
-            q.push(current->right);
-        }
-    }
-    return arr;
-}
 
 void Heap::print() {
-    queue<Node *> q;
-    q.push(root);
-    while (!q.empty()) {
-        Node *current = q.front();
-        q.pop();
-        current->item.print();
-        if (current->left)
-            q.push(current->left);
-        if (current->right)
-            q.push(current->right);
+    for (Item item: arr) {
+        item.print();
     }
 }
 
-Heap::Node::Node(Item item, Node *left, Node *right) {
-    this->item = std::move(item);
-    this->left = left;
-    this->right = right;
+
+Heap::Heap(deque<Item> &arr) {
+    this->arr = arr;
+    this->size = (int) arr.size();
 }

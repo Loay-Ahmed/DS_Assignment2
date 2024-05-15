@@ -20,7 +20,7 @@ void BST::inOrder(Node *node) {
     }
 }
 
-void BST::deleteNode(const string &name) const {
+void BST::deleteNode(const string &name) {
 
 }
 

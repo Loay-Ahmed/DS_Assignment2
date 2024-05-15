@@ -28,6 +28,6 @@ void AVL::insertNode(const string &itemName, const string &category, int price) 
 
 }
 
-void AVL::deleteNode(const string &name) const {
+void AVL::deleteNode(const string &name) {
 
 }

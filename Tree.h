@@ -8,7 +8,6 @@ using namespace std;
 class Tree {
 public:
     virtual void insertNode(const string& itemName, const string& category, int price) = 0;
-    virtual void deleteNode(const string& name) const = 0;
 };
 
 #endif //DS_ASSIGNMENT2_TREE_H
