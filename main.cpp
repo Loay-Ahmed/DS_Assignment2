@@ -6,8 +6,8 @@
 
 using namespace std;
 
-template<typename tree>
-void readFromFile(istream& input, tree& tree) {
+template<typename t>
+void readFromFile(istream& input, t& tree) {
     string name, category;
     int price, size;
     input >> size;
