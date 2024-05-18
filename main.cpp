@@ -92,21 +92,21 @@ void avlTreeMenu() {
 
 int main() {
 
-    Heap *heap = new Heap();
+//    Heap *heap = new Heap();
 
 //    heap->insertNode("Loayc", "Prog", 100);
 //    heap->insertNode("Loayb", "Prog", 400);
 //    heap->insertNode("Loaya", "Prog", 300);
-    ifstream file("D:\\Coding\\clion_files\\DS_Assignment2\\items.txt");
-    readFromFile(file, *heap);
+//    ifstream file("D:\\Coding\\clion_files\\DS_Assignment2\\items.txt");
+//    readFromFile(file, *heap);
 
 //     4 -> name asc
 //     5 -> name des
 //     6 -> price asc
 //     7 -> price des
-    heap->print(7);
-    cout << "----------------------" << endl;
-    heap->print(4);
+//    heap->print(7);
+//    cout << "----------------------" << endl;
+//    heap->print(4);
 //
 //    Heap *heap = new Heap();
 //    heap->insertNode("Loayc", "Prog", 100);
@@ -123,7 +123,7 @@ int main() {
 //    cout << "----------------------" << endl;
 //    heap->print(4);
 
-    /*int choice;
+    int choice;
     bool exitFlag = false;
 
     while (!exitFlag) {
@@ -222,7 +222,7 @@ int main() {
         }
         if (choice == 2) {
             //the code of AVL with the same pattern as BST
-
+            avlTreeMenu();
         }
         if (choice == 3) {
             //the code of heaps with the same pattern as BST
@@ -291,5 +291,5 @@ int main() {
         if (choice == 4) {
             exitFlag = true;
         }
-    }*/
+    }
 }
