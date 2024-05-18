@@ -6,8 +6,16 @@ Item::Item(string itemName, string category, int price) {
     this->price = price;
 }
 
-bool Item::operator<(const Item &item) const {
-    return (this->itemName > item.itemName);
+bool Item::operator<(const Item& item) const {
+    return (this->itemName < item.itemName);
+}
+
+bool Item::operator>(const Item& item) const {
+    return (this->price > item.price);
+}
+
+bool Item::operator==(const Item& item) const {
+    return (this->itemName == item.itemName);
 }
 
 void Item::print() {
