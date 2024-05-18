@@ -7,7 +7,7 @@ Item::Item(string itemName, string category, int price) {
 }
 
 bool Item::operator<(const Item& item) const {
-    return (this->itemName < item.itemName);
+    return (this->itemName < item.itemName); // "a" < "b"
 }
 
 bool Item::operator>(const Item& item) const {

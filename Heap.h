@@ -4,9 +4,8 @@
 
 #include <deque>
 #include "Item.h"
-#include "Tree.h"
 
-class Heap : public Tree {
+class Heap {
 private:
     deque<Item> arr;
     int size;
@@ -15,15 +14,16 @@ public:
 
     explicit Heap(deque<Item> &arr);
 
-    void heapify(int i, int n);
+    void heapifyName(int i, int n);
+    void heapifyPrice(int i, int n);
 
-    void heapSort();
+    void heapSort(int n);
 
-    void insertNode(const string &itemName, const string &category, int price) override;
+    void insertNode(const string &itemName, const string &category, int price);
 
     void deleteNode(const string &name);
 
-    void print();
+    void print(int n);
 };
 
 

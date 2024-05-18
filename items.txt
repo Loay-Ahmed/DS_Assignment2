@@ -1,0 +1,10 @@
+3
+Loaya
+prog
+300
+Loayb
+prog
+400
+Loayc
+prog
+100
