@@ -11,7 +11,7 @@ class Item
     int price;
 public:
     Item();
-    string ItemName() { return this->itemName; };
+    string ItemName() const { return this->itemName; };
     string Category() { return this->category; };
     int Price() const { return this->price; };
     Item(string itemName, string category, int price);

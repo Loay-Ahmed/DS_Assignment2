@@ -13,6 +13,7 @@ public:
     Heap();
 
     explicit Heap(deque<Item> &arr);
+    Heap(Heap* heap);
 
     void heapifyName(int i, int n);
     void heapifyPrice(int i, int n);
